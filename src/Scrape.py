@@ -102,7 +102,7 @@ def parse_html(url: str) -> Element:
     if response.status_code != 200:
         raise Exception("Error")
     text = response.text
-    text = text.replace("<br>", "<br/>").replace("<hr>", "hr/>")
+    text = text.replace("<br>", "<br/>").replace("<hr>", "<hr/>")
     text = IMG_REGEX.sub("\1/>", text)
     parser = XHTMLParser(recover=True, huge_tree=True)
     return fromstring(text, parser=parser)
